@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/parasjain/Dropbox/Code/boucy-ball/app/src/main/res" >
+            <file
+                name="icon"
+                path="/Users/parasjain/Dropbox/Code/boucy-ball/app/src/main/res/drawable/icon.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/parasjain/Dropbox/Code/boucy-ball/app/src/main/res/drawable-hdpi/icon.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/parasjain/Dropbox/Code/boucy-ball/app/src/main/res/drawable-ldpi/icon.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="main"
+                path="/Users/parasjain/Dropbox/Code/boucy-ball/app/src/main/res/layout/main.xml"
+                qualifiers=""
+                type="layout" />
+        </source>
+        <source path="/Users/parasjain/Dropbox/Code/boucy-ball/app/build/res/rs/debug" />
+        <source path="/Users/parasjain/Dropbox/Code/boucy-ball/app/build/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/parasjain/Dropbox/Code/boucy-ball/app/src/debug/res" />
+    </dataSet>
+
+</merger>
