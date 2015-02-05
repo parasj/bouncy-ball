@@ -16,13 +16,13 @@ import java.io.IOException;
 
 public class TestApp extends PApplet {
 
-    int xPos; //Position of the ball
-    int speed = 0; //How fast is it moving?
-    int xDir = 1; //what direction is the ball going?
-    int score = 0; //Inital score
-    int lives = 1; //Number of lives you start with
-    boolean lost = false; //Have you lost yet?
-    int speedDelta = sketchWidth()/400;
+    private int xPos; //Position of the ball
+    private int speed = 0; //How fast is it moving?
+    private int xDir = 1; //what direction is the ball going?
+    private int score = 0; //Inital score
+    private int lives = 1; //Number of lives you start with
+    private boolean lost = false; //Have you lost yet?
+    private int speedDelta = sketchWidth()/400;
 
     public void setup() //Runs once when program launches
     {
@@ -72,7 +72,7 @@ public class TestApp extends PApplet {
             }
             lives = lives - 1; //Take away one life
         }
-        if (lost == true) //If we lost the game, reset now and start over
+        if (lost) //If we lost the game, reset now and start over
         {
             speed = 1; //Reset all variables to initial conditions
             lives = 5;
