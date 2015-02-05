@@ -16,8 +16,8 @@ import java.io.IOException;
 
 public class TestApp extends PApplet {
 
-    private int xPos; //Position of the ball
-    private int speed = 0; //How fast is it moving?
+    private int xPos;
+    private int speed = 0;
     private int xDir = 1; //what direction is the ball going?
     private int score = 0; //Inital score
     private int lives = 1; //Number of lives you start with
