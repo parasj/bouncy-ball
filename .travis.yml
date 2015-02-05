@@ -19,12 +19,11 @@ before_script:
 
 script:
   - ./gradlew assembleDebug --stacktrace
-  - ls ./app/build/apk
 
 deploy:
   provider: releases
   api-key: $GITHUB_APIKEY
-  file: "app/build/outputs/apk/app-debug.apk"
+  file: "app/build/outputs/apk/app-debug-unaligned.apk"
   skip_cleanup: true
   on:
     tags: true
