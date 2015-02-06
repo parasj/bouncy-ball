@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1" android:versionName="1.0" package="processing.test.testapp">
-    <application android:icon="@drawable/icon" android:label="TestApp">
-        <activity android:name=".TestApp">
+    <application android:icon="@drawable/icon" android:label="Bouncy Ball">
+        <activity android:name="processing.test.BouncyBall.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
