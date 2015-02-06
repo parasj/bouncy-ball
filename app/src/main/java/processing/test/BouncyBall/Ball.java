@@ -8,6 +8,7 @@ class Ball extends ProcessingObject {
 
     protected int xPos;
     protected int yPos;
+    protected int radius;
 
     protected int taps;
     protected double speed;
@@ -22,6 +23,7 @@ class Ball extends ProcessingObject {
         speed = 0;
         dSpeed = 0;
         taps = 0;
+        radius = game.display.calcScale(60);
     }
 
     @Override
@@ -38,31 +40,24 @@ class Ball extends ProcessingObject {
     @Override
     public void draw() {
         game.p.fill(ballColor);
-        game.p.ellipse(xPos, yPos, game.display.calcScale(60),
-                game.display.calcScale(60));
+        game.p.ellipse(xPos, yPos, radius, radius);
+        radius = game.display.calcScale(60);
 
         xPos += (speed * xDir);
         yPos += (speed * yDir);
-
-
     }
 
     @Override
     public void mousePressed() {
-        // System.out.println("Mouse Pressed event - Ball object " + hashCode());
+        if (game.p.dist(game.p.mouseX, game.p.mouseY, xPos, yPos) <= radius * 2) {
+            taps++;
+            game.score += speed;
 
-        taps++;
-        game.score += speed;
-
-        speed += dSpeed;
-        xDir = -1*xDir;
-        yDir = -1*yDir;
-
-        if (game.lost) //If we lost the game, reset now and start over
-        {
-            setup();
-            game.reset();
-            game.p.loop(); // unpause
+            speed += dSpeed;
+            xDir = -1*xDir;
+            yDir = -1*yDir;
+        } else {
+            game.doLose();
         }
     }
 }

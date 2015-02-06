@@ -44,11 +44,19 @@ class GameView {
         p.textSize(display.calcScale(20));
         p.text("score = " + score, 10, display.calcScale(20));
 
+        debugInfo();
+
         if (ball.xPos > display.getDisplayWidth() - 20 || ball.xPos < 20) {
             doLose();
         }
 
         ball.draw();
+    }
+
+    private void debugInfo() {
+        p.textSize(display.calcScale(12));
+        p.text("framerate = " + p.frameRate, 10, display.getDisplayHeight() - display.calcScale(40));
+        p.text("framecount = " + p.frameCount, 10, display.getDisplayHeight() - display.calcScale(50));
     }
 
     public void doLose() {
@@ -62,7 +70,13 @@ class GameView {
     }
 
     public void mousePressed() {
-        ball.mousePressed();
+        if (lost) {
+            ball.setup();
+            reset();
+            p.loop(); // unpause
+        } else {
+            ball.mousePressed();
+        }
     }
 
     public void reset() {

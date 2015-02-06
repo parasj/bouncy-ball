@@ -22,6 +22,7 @@ class Display extends ProcessingObject {
     }
 
     public double getScaleFactor() {
+        updateSize();
         return width / ((double) baseWidth);
     }
 

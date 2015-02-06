@@ -28,7 +28,6 @@ public class Main extends PApplet {
      */
     public void draw() {
         game.draw();
-
     }
 
 
@@ -37,7 +36,6 @@ public class Main extends PApplet {
     }
 
     public int sketchWidth() {
-        System.out.println("Updated width, " + game.display.getDisplayWidth());
         return game.display.getDisplayWidth();
     }
 
