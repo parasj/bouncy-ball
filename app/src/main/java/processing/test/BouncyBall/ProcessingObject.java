@@ -1,18 +1,24 @@
 package processing.test.BouncyBall;
 
-import processing.core.*;
-
 /**
  * Created by parasjain on 2/5/15.
  */
-public abstract class ProcessingObject {
-    protected PApplet p;
+abstract class ProcessingObject {
+    protected GameView game;
 
-    public ProcessingObject(PApplet p) {
-        this.p = p;
+    public ProcessingObject(GameView g) {
+        this.game = g;
     }
 
-    public abstract void setup();
+    public void setup() {
 
-    public abstract void draw();
+    };
+
+    public void draw() {
+
+    };
+
+    public void mousePressed() {
+
+    };
 }

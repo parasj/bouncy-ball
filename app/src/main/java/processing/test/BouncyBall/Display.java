@@ -1,13 +1,11 @@
 package processing.test.BouncyBall;
 
-import processing.core.*;
-
-public class DisplayScale extends ProcessingObject {
+class Display extends ProcessingObject {
     private int width;
     private int height;
     private static final int baseWidth = 400;
 
-    public DisplayScale(PApplet p) {
+    public Display(GameView p) {
         super(p);
     }
 
@@ -24,12 +22,13 @@ public class DisplayScale extends ProcessingObject {
     }
 
     private void updateSize() {
-        this.width = p.displayWidth;
-        this.height = p.displayHeight;
+        this.width = game.p.displayWidth;
+        this.height = game.p.displayHeight;
     }
 
     @Override
     public void setup() {
+        game.p.smooth();
         updateSize();
     }
 

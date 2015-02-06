@@ -3,27 +3,31 @@ package processing.test.BouncyBall;
 import processing.core.*;
 
 public class Main extends PApplet {
-    private DisplayScale displayScale;
+    protected GameView game;
 
     /**
      * Constructor
      */
     public Main() {
-        displayScale = new DisplayScale(this);
+        game = new GameView(this);
     }
 
     /**
      * Setup for Processing
      */
     public void setup() {
-        displayScale.setup();
+        game.setup();
+
+        // debug
+        String[] fontList = PFont.list();
+        println(fontList);
     }
 
     /**
      * Draw for Processing
      */
     public void draw() {
-        displayScale.draw();
+        game.draw();
 
     }
 
@@ -33,10 +37,10 @@ public class Main extends PApplet {
     }
 
     public int sketchWidth() {
-        return displayScale.getDisplayWidth();
+        return game.display.getDisplayWidth();
     }
 
     public int sketchHeight() {
-        return displayScale.getDisplayHeight();
+        return game.display.getDisplayHeight();
     }
 }
