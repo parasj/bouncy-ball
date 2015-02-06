@@ -6,19 +6,22 @@ package processing.test.BouncyBall;
 class Ball extends ProcessingObject {
     private int ballColor;
 
-    private int xPos;
-    private int yPos;
+    protected int xPos;
+    protected int yPos;
 
-    private int taps;
-    private double speed = 0;
-    private double dSpeed= game.p.game.display.getScaleFactor(); // dv/dt
+    protected int taps;
+    protected double speed;
+    protected double dSpeed;
 
     // 0 = still, 1 = positive direction, 2 = negative direction
-    private int xDir = 1;
-    private int yDir = 0;
+    protected int xDir = 1;
+    protected int yDir = 0;
 
     public Ball(GameView p) {
         super(p);
+        speed = 0;
+        dSpeed = 0;
+        taps = 0;
     }
 
     @Override
@@ -26,14 +29,21 @@ class Ball extends ProcessingObject {
         xPos = game.display.getDisplayWidth() / 2;
         yPos = game.display.getDisplayHeight() / 2;
 
-        ballColor = game.p.color(255, 255, 255);
+        ballColor = game.p.color(0, 0, 0);
 
-        dSpeed = Math.max(game.display.getScaleFactor() * 1, 1);
+        speed = 0;
+        dSpeed = Math.max(game.display.calcScale(1), 1);
     }
 
     @Override
     public void draw() {
-        
+        game.p.ellipse(xPos, yPos, game.display.calcScale(60),
+                game.display.calcScale(60));
+
+        xPos += (dSpeed * xDir);
+        yPos += (dSpeed * yDir);
+
+
     }
 
     @Override
@@ -43,5 +53,12 @@ class Ball extends ProcessingObject {
 
         xDir = -1*xDir;
         yDir = -1*yDir;
+
+        if (game.lost) //If we lost the game, reset now and start over
+        {
+            setup();
+            game.reset();
+            game.p.loop(); // unpause
+        }
     }
 }
