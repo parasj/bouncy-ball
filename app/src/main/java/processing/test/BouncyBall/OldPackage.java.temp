@@ -1,28 +1,14 @@
-package processing.test.testapp;
+package processing.test.BouncyBall;
 
 import processing.core.*;
-import processing.data.*;
-import processing.event.*;
-import processing.opengl.*;
 
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.io.File;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.IOException;
+public class MainOld1 extends PApplet {
 
-public class TestApp extends PApplet {
 
-    private int xPos;
-    private int speed = 0;
-    private int xDir = 1; //what direction is the ball going?
     private int score = 0; //Inital score
     private int lives = 1; //Number of lives you start with
     private boolean lost = false; //Have you lost yet?
-    private int speedDelta = sketchWidth()/400;
+
 
     public void setup() //Runs once when program launches
     {
