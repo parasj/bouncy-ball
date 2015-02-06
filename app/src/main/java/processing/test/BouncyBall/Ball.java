@@ -49,7 +49,8 @@ class Ball extends ProcessingObject {
 
     @Override
     public void mousePressed() {
-        System.out.println("Mouse Pressed event - Ball object " + hashCode());
+        // System.out.println("Mouse Pressed event - Ball object " + hashCode());
+
         taps++;
         game.score += speed;
 
