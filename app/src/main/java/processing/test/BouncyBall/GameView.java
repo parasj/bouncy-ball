@@ -33,9 +33,9 @@ class GameView {
     public void setup() {
         p.smooth();
         p.noStroke();
+
         display.setup();
-        for (ProcessingObject obj : world)
-            obj.setup();
+        ball.setup();
     }
 
     public void draw() {
@@ -48,8 +48,7 @@ class GameView {
             doLose();
         }
 
-        for (ProcessingObject obj : world)
-            obj.draw();
+        ball.draw();
     }
 
     public void doLose() {
@@ -63,8 +62,7 @@ class GameView {
     }
 
     public void mousePressed() {
-        for (ProcessingObject obj : world)
-            obj.mousePressed();
+        ball.mousePressed();
     }
 
     public void reset() {
