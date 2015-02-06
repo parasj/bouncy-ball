@@ -37,20 +37,23 @@ class Ball extends ProcessingObject {
 
     @Override
     public void draw() {
+        game.p.fill(ballColor);
         game.p.ellipse(xPos, yPos, game.display.calcScale(60),
                 game.display.calcScale(60));
 
-        xPos += (dSpeed * xDir);
-        yPos += (dSpeed * yDir);
+        xPos += (speed * xDir);
+        yPos += (speed * yDir);
 
 
     }
 
     @Override
     public void mousePressed() {
+        System.out.println("Mouse Pressed event - Ball object " + hashCode());
         taps++;
-        speed += dSpeed;
+        game.score += speed;
 
+        speed += dSpeed;
         xDir = -1*xDir;
         yDir = -1*yDir;
 

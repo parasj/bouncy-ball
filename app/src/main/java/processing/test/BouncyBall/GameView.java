@@ -31,6 +31,9 @@ class GameView {
     }
 
     public void setup() {
+        p.smooth();
+        p.noStroke();
+        display.setup();
         for (ProcessingObject obj : world)
             obj.setup();
     }
@@ -52,6 +55,7 @@ class GameView {
     public void doLose() {
         p.textSize(display.calcScale(40));
         p.textAlign(p.CENTER);
+        p.fill(0);
         p.text("Click to Restart", display.getDisplayWidth()/2, display.getDisplayHeight()/3);
         p.textAlign(p.LEFT);
         p.noLoop(); // pause

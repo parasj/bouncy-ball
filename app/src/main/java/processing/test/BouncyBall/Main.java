@@ -33,10 +33,11 @@ public class Main extends PApplet {
 
 
     public void mousePressed() {
-
+        game.mousePressed();
     }
 
     public int sketchWidth() {
+        System.out.println("Updated width, " + game.display.getDisplayWidth());
         return game.display.getDisplayWidth();
     }
 

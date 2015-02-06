@@ -7,13 +7,17 @@ class Display extends ProcessingObject {
 
     public Display(GameView p) {
         super(p);
+        width = 500;
+        height = 500;
     }
 
     public int getDisplayWidth() {
+        updateSize();
         return width;
     }
 
     public int getDisplayHeight() {
+        updateSize();
         return height;
     }
 
@@ -21,18 +25,17 @@ class Display extends ProcessingObject {
         return width / ((double) baseWidth);
     }
 
-    public int calcScale(int a) {
+;    public int calcScale(int a) {
         return (int) (a * width / ((double) baseWidth));
     }
 
     private void updateSize() {
-        this.width = game.p.displayWidth;
-        this.height = game.p.displayHeight;
+        width = game.p.displayWidth;
+        height = game.p.displayHeight;
     }
 
     @Override
     public void setup() {
-        game.p.smooth();
         updateSize();
     }
 
